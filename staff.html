@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Staff - EC2G Group</title>
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brick: #b85638;
+      --gray-text: #444;
+    }
+
+    body {
+      font-family: 'Fira Sans', Arial, sans-serif;
+      margin: 0;
+      background: #fff;
+      color: var(--gray-text);
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 2px solid var(--brick);
+      padding: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 24px 16px 24px;
+      box-sizing: border-box;
+      gap: 40px;
+    }
+
+    .header-logo img {
+      display: block;
+      height: 90px;
+      width: auto;
+      border-radius: 8px;
+      background: none;
+      padding: 4px;
+      box-shadow: none;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 18px;
+      background: #fff;
+      border: 2.2px solid var(--brick);
+      border-radius: 2.2em;
+      padding: 0 12px;
+      box-shadow: 0 2px 18px rgba(184,86,56,0.05);
+    }
+
+    .header-nav a {
+      color: var(--gray-text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.13rem;
+      padding: 11px 22px;
+      border-radius: 1.7em;
+      letter-spacing: 0.01em;
+      transition: background 0.19s, color 0.18s;
+      display: block;
+    }
+
+    .header-nav a:hover, .header-nav a:focus {
+      background: var(--brick);
+      color: #fff;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 140px auto 0 auto; /* Room for fixed header */
+      padding: 0 20px;
+      min-height: 80vh;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--brick);
+      margin-top: 0;
+    }
+
+    /* Staff Card Grid Styles */
+    .staff-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 38px 32px;
+      margin-top: 38px;
+      margin-bottom: 38px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .staff-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.09);
+      padding: 34px 20px 24px 20px;
+      min-width: 210px;
+      max-width: 240px;
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    .staff-avatar {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      border-radius: 50%;
+      margin-bottom: 14px;
+      background: #f6f6fa;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .staff-details {
+      text-align: center;
+    }
+
+    .staff-details h3 {
+      margin: 0 0 2px 0;
+      font-size: 1.11em;
+      font-weight: bold;
+      text-align: center;
+      font-family: inherit;
+      text-decoration: underline;
+      color: #111;
+    }
+
+    .staff-link {
+      color: inherit;
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+
+    .staff-link:hover,
+    .staff-link:focus {
+      color: var(--brick);
+      text-decoration: underline;
+    }
+
+    .staff-details .phd {
+      font-size: 0.95em;
+      font-weight: bold;
+    }
+
+    .staff-title {
+      font-style: italic;
+      font-size: 1em;
+      color: #555;
+      margin-top: 2px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      background: #fff;
+      color: #333;
+      padding: 20px 0 10px 0;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 2rem;
+      font-size: 0.98rem;
+    }
+
+    @media (max-width: 1000px) {
+      main { max-width: 98vw; }
+      .header-bar { flex-direction: column; gap: 10px; }
+      .header-logo img { height: 60px; }
+      .header-nav { margin-top: 7px; gap: 7px; padding: 0 6px; }
+      .header-nav a { font-size: 1rem; padding: 8px 13px; }
+    }
+
+    @media (max-width: 800px) {
+      .staff-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 26px 0;
+      }
+      .staff-card {
+        min-width: 0;
+        width: 94vw;
+        max-width: 340px;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-bar">
+    <div class="header-logo">
+      <img src="logos/ec2g.svg" alt="EC2G Logo">
+    </div>
+    <nav class="header-nav">
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="staff.html">Staff</a>
+      <a href="videos.html">Videos</a>
+      <a href="network.html">Network</a>
+    </nav>
+  </div>
+</header>
+
+
+<main>
+  <h2>Academic Staff</h2>
+  <div class="staff-list">
+    <div class="staff-card">
+      <img src="staff/avatars/Andres_Fuentes-150x150.png" alt="Andrés Fuentes" class="staff-avatar">
+      <div class="staff-details">
+        <h3>
+          <a href="staff/andres-fuentes.html" class="staff-link">Andrés Fuentes, <span class="phd">PhD</span></a>
+        </h3>
+        <div class="staff-title">Professor</div>
+      </div>
+    </div>
+
+    <div class="staff-card">
+      <img src="images/rodrigo_demarco.png" alt="Rodrigo Demarco" class="staff-avatar">
+      <div class="staff-details">
+        <h3>
+          <a href="staff/rodrigo-demarco.html" class="staff-link">Rodrigo Demarco, <span class="phd">PhD</span></a>
+        </h3>
+        <div class="staff-title">Associate Professor</div>
+      </div>
+    </div>
+
+    <div class="staff-card">
+      <img src="images/felipe_escudero.png" alt="Felipe Escudero" class="staff-avatar">
+      <div class="staff-details">
+        <h3>
+          <a href="staff/felipe-escudero.html" class="staff-link">Felipe Escudero, <span class="phd">PhD</span></a>
+        </h3>
+        <div class="staff-title">Assistant Professor</div>
+      </div>
+    </div>
+
+    <div class="staff-card">
+      <img src="images/gonzalo_severino.png" alt="Gonzalo Severino" class="staff-avatar">
+      <div class="staff-details">
+        <h3>
+          <a href="staff/gonzalo-severino.html" class="staff-link">Gonzalo Severino, <span class="phd">PhD</span></a>
+        </h3>
+        <div class="staff-title">Assistant Professor</div>
+      </div>
+    </div>
+
+    <div class="staff-card">
+      <img src="images/gonzalo_olivares.png" alt="Gonzalo Olivares" class="staff-avatar">
+      <div class="staff-details">
+        <h3>
+          <a href="staff/gonzalo-olivares.html" class="staff-link">Gonzalo Olivares, <span class="phd">MSc</span></a>
+        </h3>
+        <div class="staff-title">Research Engineer</div>
+      </div>
+    </div>
+
+
+  </div>
+  
+  <h2>Students</h2>
+  <div class="staff-list">
+    <!-- Student cards here -->
+    <div class="staff-card">
+      <img src="images/ignacio_verdugo.png" alt="Ignacio Verdugo" class="staff-avatar">
+      <div class="staff-details">
+        <h3>
+          <a href="staff/ignacio-verdugo.html" class="staff-link">Ignacio Verdugo, <span class="msc">MSc </span></a>
+        </h3>
+        <div class="staff-title">PhD Student</div>
+      </div>
+    </div>
+
+    <div class="staff-card">
+      <img src="images/nicolas_gutierrez.png" alt="Nicolás Gutiérrez" class="staff-avatar">
+      <div class="staff-details">
+        <h3>
+          <a href="staff/nicolas-gutierrez.html" class="staff-link">Nicolás Gutiérrez, <span class="msc">MSc </span></a>
+        </h3>
+        <div class="staff-title">PhD Student</div>
+      </div>
+    </div>
+
+    <div class="staff-card">
+      <img src="images/felipe_alarcon.png" alt="Felipe Alarcón" class="staff-avatar">
+      <div class="staff-details">
+        <h3>
+          <a href="staff/felipe-alarcon.html" class="staff-link">Felipe Alarcón</a>
+        </h3>
+        <div class="staff-title">MSc Student</div>
+      </div>
+    </div>
+
+    <div class="staff-card">
+      <img src="images/constanza_lopez.png" alt="Constanza López" class="staff-avatar">
+      <div class="staff-details">
+        <h3>
+          <a href="staff/constanza-lopez.html" class="staff-link">Constanza López</a>
+        </h3>
+        <div class="staff-title">MSc Student</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Collaborators</h2>
+  <div class="staff-list">
+    <!-- Collaborator cards here -->
+    <div class="staff-card">
+      <img src="images/juan_jose_cruz.png" alt="Juan José Cruz" class="staff-avatar">
+      <div class="staff-details">
+        <h3>
+          <a href="staff/juan-jose-cruz.html" class="staff-link">Juan José Cruz, <span class="phd">PhD</span></a>
+        </h3>
+        <div class="staff-title">Assistant Professor</div>
+      </div>
+    </div>
+
+    <div class="staff-card">
+      <img src="images/pedro_reszka.png" alt="Pedro Reszka" class="staff-avatar">
+      <div class="staff-details">
+        <h3>
+          <a href="staff/pedro-reszka.html" class="staff-link">Pedro Reszka, <span class="phd">PhD</span></a>
+        </h3>
+        <div class="staff-title">Associate Professor</div>
+      </div>
+    </div>
+
+    <div class="staff-card">
+      <img src="images/maria_thomsen.png" alt="María Thomsen" class="staff-avatar">
+      <div class="staff-details">
+        <h3>
+          <a href="staff/maria-thomsen.html" class="staff-link">María Thomsen, <span class="phd">PhD</span></a>
+        </h3>
+        <div class="staff-title">Assistant Professor</div>
+      </div>
+    </div>
+
+    <div class="staff-card">
+      <img src="images/jose_moran.png" alt="José Morán" class="staff-avatar">
+      <div class="staff-details">
+        <h3>
+          <a href="staff/jose-moran.html" class="staff-link">José Morán, <span class="phd">PhD</span></a>
+        </h3>
+        <div class="staff-title">Assistant Professor</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Former Graduated Students</h2>
+  <div class="staff-list">
+    <!-- Former students cards here -->
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 EC2G - UTFSM
+</footer>
+</body>
+</html>

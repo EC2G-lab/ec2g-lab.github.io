@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Felipe Escudero - EC2G Group</title>
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brick: #b85638;    /* Brick color, adjust as needed */
+      --gray-text: #444;
+      --nav-radius: 2.2em;
+      --nav-padding: 11px 22px;
+    }
+    body {
+      font-family: 'Fira Sans', Arial, sans-serif;
+      margin: 0;
+      background: #fff;
+      color: var(--gray-text);
+    }
+    header {
+      background: #fff;
+      border-bottom: 2px solid var(--brick);
+      padding: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 24px 16px 24px;
+      box-sizing: border-box;
+      gap: 40px;
+    }
+    .header-logo img {
+      display: block;
+      height: 90px;
+      width: auto;
+      border-radius: 8px;
+      background: none;
+      padding: 4px;
+      box-shadow: none;
+    }
+    .header-nav {
+      display: flex;
+      gap: 18px;
+      background: #fff;
+      border: 2.2px solid var(--brick);
+      border-radius: var(--nav-radius);
+      padding: 0 12px;
+      box-shadow: 0 2px 18px rgba(184,86,56,0.05);
+    }
+    .header-nav a {
+      color: var(--gray-text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.13rem;
+      padding: var(--nav-padding);
+      border-radius: 1.7em;
+      letter-spacing: 0.01em;
+      transition: background 0.19s, color 0.18s;
+      display: block;
+    }
+    .header-nav a:hover, .header-nav a:focus {
+      background: var(--brick);
+      color: #fff;
+    }
+    @media (max-width: 800px) {
+      .header-bar {
+        flex-direction: column;
+        align-items: center;
+        padding: 16px 6vw 10px 6vw;
+        gap: 10px;
+      }
+      .header-logo img {
+        height: 60px;
+      }
+      .header-nav {
+        margin-top: 7px;
+        gap: 7px;
+        border-radius: 1.5em;
+        padding: 0 6px;
+      }
+      .header-nav a {
+        font-size: 1rem;
+        padding: 8px 13px;
+      }
+    }
+    main {
+      max-width: 1000px;
+      margin: 160px auto 0 auto;
+      padding: 0 20px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--brick);
+    }
+    footer {
+      text-align: center;
+      background: #f4f7fb;
+      color: #333;
+      padding: 20px 0 10px 0;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 2rem;
+      font-size: 0.98rem;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-bar">
+    <div class="header-logo">
+      <img src="../logos/ec2g.svg" alt="EC2G Logo">
+    </div>
+    <nav class="header-nav">
+      <a href="../index.html">Home</a>
+      <a href="../news.html">News</a>
+      <a href="../staff.html">Staff</a>
+      <a href="../videos.html">Videos</a>
+      <a href="../network.html">Network</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="staff-profile">
+    <h2>Felipe Escudero, PhD</h2>
+    <div class="profile-info">
+      <div class="profile-image">
+        <!-- Placeholder for profile image -->
+        <div style="width: 200px; height: 200px; background-color: #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+          <span style="font-size: 48px; color: #666;">AF</span>
+        </div>
+      </div>
+      <div class="profile-details">
+        <h3>Contact Information</h3>
+        <p><strong>Email:</strong> andres.fuentes@usm.cl</p>
+        <p><strong>Office:</strong> [Office Location]</p>
+        <p><strong>Phone:</strong> [Phone Number]</p>
+        <p><strong>ORCID:</strong> <a href="https://orcid.org/0000-0001-6919-3451" target="_blank" id="orcid-link">0000-0002-5037-0961</a></p>
+        
+        <h3>Research Interests</h3>
+        <ul>
+          <li>Combustion and Energy Conversion</li>
+          <li>Computational Fluid Dynamics</li>
+          <li>Experimental Combustion</li>
+          <li>Renewable Energy Systems</li>
+        </ul>
+        
+        <h3>Education</h3>
+        <ul>
+          <li><strong>Ph.D.</strong> in [Field] - [University], [Year]</li>
+          <li><strong>M.Sc.</strong> in [Field] - [University], [Year]</li>
+          <li><strong>B.Sc.</strong> in [Field] - [University], [Year]</li>
+        </ul>
+        
+        <h3>Selected Publications</h3>
+        <div id="publications">
+          <ul id="pub-list">Loading publications from ORCID...</ul>
+        </div>
+        
+        <h3>Current Projects</h3>
+        <ul>
+          <li>Project 1: [Description]</li>
+          <li>Project 2: [Description]</li>
+          <li>Project 3: [Description]</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>
+  &copy; 2025 EC2G - UTFSM
+</footer>
+
+<script>
+  async function loadORCIDJournalArticles(orcId) {
+    // 1. Fetch all works
+    const resp = await fetch(
+      `https://pub.orcid.org/v3.0/${orcId}/works`,
+      { headers: { Accept: "application/json" } }
+    );
+    const data = await resp.json();
+    const group = data['group'] || [];
+  
+    // 2. Extract only journal articles, sort by date, get latest 5
+    const journalPubs = group
+      .map(item => {
+        const summary = item['work-summary'][0];
+        const type = summary['type'];
+        const pubDate = summary['publication-date'];
+        const year = pubDate?.year?.value || '';
+        const month = pubDate?.month?.value || '01';
+        const day = pubDate?.day?.value || '01';
+        const dateNum = Number(`${year}${month.padStart(2, '0')}${day.padStart(2, '0')}`);
+        return {
+          putCode: summary['put-code'],
+          dateNum,
+          type
+        };
+      })
+      .filter(pub => pub.type === 'journal-article' && pub.dateNum > 0)
+      .sort((a, b) => b.dateNum - a.dateNum)
+      .slice(0, 5);
+  
+    // 3. Fetch detailed info for each article
+    const details = await Promise.all(journalPubs.map(async pub => {
+      const detailResp = await fetch(
+        `https://pub.orcid.org/v3.0/${orcId}/work/${pub.putCode}`,
+        { headers: { Accept: "application/json" } }
+      );
+      return await detailResp.json();
+    }));
+  
+    const list = document.getElementById("pub-list");
+    list.innerHTML = "";
+  
+    // 4. Display each article
+    details.forEach(pub => {
+      const title = pub.title?.title?.value || '(No Title)';
+      const year = pub['publication-date']?.year?.value || '';
+      // Get first external id of type DOI if available
+      const doi = pub['external-ids']?.['external-id']?.find(e => e['external-id-type']?.toLowerCase() === 'doi');
+      // Authors (contributors)
+      let authors = '';
+      if (pub.contributors?.contributor?.length) {
+        authors = pub.contributors.contributor
+          .map(a => {
+            const name = a['credit-name']?.value;
+            if (name) return name;
+            return '';
+          })
+          .filter(Boolean)
+          .join(', ');
+      }
+      // Journal title
+      const journal = pub['journal-title']?.value || '';
+  
+      // Build link (if DOI, make title clickable)
+      let html = '';
+      if (doi && doi['external-id-value']) {
+        html = `<a href="https://doi.org/${doi['external-id-value']}" target="_blank">${title}</a>`;
+      } else {
+        html = title;
+      }
+  
+      // Final HTML for each item
+      list.innerHTML += `<li>
+        ${html}<br>
+        <small>
+          ${authors ? authors + '. ' : ''}
+          <i>${journal}</i>${journal ? ',' : ''} ${year}
+        </small>
+      </li>`;
+    });
+  }
+  
+  loadORCIDJournalArticles("0000-0001-6919-3451");
+  </script>
+
+
+
+
+
+</body>
+</html> 

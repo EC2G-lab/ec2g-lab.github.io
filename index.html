@@ -1,12 +1,258 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Mi primera página en GitHub Pages</title>
+  <meta charset="UTF-8">
+  <title>Home - EC2G Group</title>
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brick: #b85638;    /* Brick color, adjust as needed */
+      --gray-text: #444;
+      --nav-radius: 2.2em;
+      --nav-padding: 11px 22px;
+    }
+    body {
+      font-family: 'Fira Sans', Arial, sans-serif;
+      margin: 0;
+      background: #fff;
+      color: var(--gray-text);
+    }
+    header {
+      background: #fff;
+      border-bottom: 2px solid var(--brick);
+      padding: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 24px 16px 24px;
+      box-sizing: border-box;
+    }
+    .header-logo img {
+      display: block;
+      height: 90px;
+      width: auto;
+      border-radius: 8px;
+      background: none;
+      padding: 4px;
+      box-shadow: none;
+    }
+    .header-nav {
+      display: flex;
+      gap: 18px;
+      background: #fff;
+      border: 2.2px solid var(--brick);
+      border-radius: var(--nav-radius);
+      padding: 0 12px;
+      box-shadow: 0 2px 18px rgba(184,86,56,0.05);
+    }
+    .header-nav a {
+      color: var(--gray-text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.13rem;
+      padding: var(--nav-padding);
+      border-radius: 1.7em;
+      letter-spacing: 0.01em;
+      transition: background 0.19s, color 0.18s;
+      display: block;
+    }
+    .header-nav a:hover, .header-nav a:focus {
+      background: var(--brick);
+      color: #fff;
+    }
+    @media (max-width: 800px) {
+      .header-bar {
+        flex-direction: column;
+        align-items: center;
+        padding: 16px 6vw 10px 6vw;
+        gap: 10px;
+      }
+      .header-logo img {
+        height: 60px;
+      }
+      .header-nav {
+        margin-top: 7px;
+        gap: 7px;
+        border-radius: 1.5em;
+        padding: 0 6px;
+      }
+      .header-nav a {
+        font-size: 1rem;
+        padding: 8px 13px;
+      }
+    }
+    main {
+      max-width: 1000px;
+      margin: 160px auto 0 auto;
+      padding: 0 20px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--brick);
+    }
+    footer {
+      text-align: center;
+      background: #f4f7fb;
+      color: #333;
+      padding: 20px 0 10px 0;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 2rem;
+      font-size: 0.98rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>¡Hola mundo!</h1>
-    <p>Esta es mi primera página publicada con GitHub Pages.</p>
-    <p>Creada por: <strong>Tu Nombre</strong></p>
+<header>
+  <div class="header-bar">
+    <div class="header-logo">
+      <img src="logos/ec2g.svg" alt="EC2G Logo">
+    </div>
+    <nav class="header-nav">
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="staff.html">Staff</a>
+      <a href="videos.html">Videos</a>
+      <a href="network.html">Network</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <h2>Home</h2>
+  <div style="display: flex; align-items: flex-start; gap: 2rem; flex-wrap: wrap;">
+    <div style="width: 100%; max-width: 100%; margin: 0 auto;">
+      <p style="text-align: justify;">
+        Our research centers on thermal systems and energy conversion. Our current projects span a range of topics, including combustion in microgravity, biomass energy conversion, fire safety, wildfires, optical experimental methods, and solar potential assessment.
+        <br><br>
+        We are part of the Department of Industrial Engineering at Universidad Técnica Federico Santa María, with locations in both Valparaíso and Santiago, Chile.
+      </p>
+
+      <img src="img/home_utfsm.jpg" alt="UTFSM Campus" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); display: block; margin-bottom: 1.2rem;">
+
+    </div>
+  </div>
+
+  <hr style="margin: 2.5rem 0; border: none; border-top: 2px solid var(--brick);">
+
+  <h2>News</h2>
+  <div class="news-carousel" style="max-width: 100%; margin: 0 auto 24px auto; position: relative;">
+    <div class="news-slide" style="display: block;">
+      <img src="img/MCS.png" alt="13th Mediterranean Combustion Symposium" style="display: block; width: 100%; max-width: 100%; border-radius: 10px; margin-bottom: 1rem;">
+      <p style="text-align: justify;">
+        The EC2G group participated in the <strong>13th Mediterranean Combustion Symposium</strong>, held in Corfu, Greece, from June 9–14, 2024. Our team presented recent research and engaged with the international combustion community. Congratulations to all members who contributed to this successful participation!
+      </p>
+    </div>
+    <div class="news-slide" style="display: none;">
+      <p style="text-align: justify;">
+        <strong>New Project Awarded:</strong> EC2G has been granted funding for a new research project on <em>Biomass Energy Conversion</em> starting August 2024. Stay tuned for updates on our progress and findings!
+      </p>
+    </div>
+    <div class="news-slide" style="display: none;">
+      <p style="text-align: justify;">
+        <strong>Upcoming Seminar:</strong> Join us for a seminar on <em>Fire Safety in Industrial Environments</em> on September 12, 2024, at the Valparaíso campus. All are welcome!
+      </p>
+    </div>
+    <button id="prev-news" style="position: absolute; left: -40px; top: 50%; transform: translateY(-50%); background: var(--brick); color: #fff; border: none; border-radius: 50%; width: 32px; height: 32px; font-size: 1.2em; cursor: pointer;">&#8592;</button>
+    <button id="next-news" style="position: absolute; right: -40px; top: 50%; transform: translateY(-50%); background: var(--brick); color: #fff; border: none; border-radius: 50%; width: 32px; height: 32px; font-size: 1.2em; cursor: pointer;">&#8594;</button>
+    <div id="news-dots" style="text-align: center; margin-top: 8px;">
+      <span class="news-dot" style="display: inline-block; width: 10px; height: 10px; margin: 0 3px; background: var(--brick); border-radius: 50%; opacity: 0.7; cursor: pointer;"></span>
+      <span class="news-dot" style="display: inline-block; width: 10px; height: 10px; margin: 0 3px; background: #bbb; border-radius: 50%; opacity: 0.7; cursor: pointer;"></span>
+      <span class="news-dot" style="display: inline-block; width: 10px; height: 10px; margin: 0 3px; background: #bbb; border-radius: 50%; opacity: 0.7; cursor: pointer;"></span>
+    </div>
+  </div>
+  <script>
+    // Simple news carousel logic
+    const slides = document.querySelectorAll('.news-slide');
+    const dots = document.querySelectorAll('.news-dot');
+    let currentSlide = 0;
+
+    function showSlide(idx) {
+      slides.forEach((slide, i) => {
+        slide.style.display = (i === idx) ? 'block' : 'none';
+        dots[i].style.background = (i === idx) ? 'var(--brick)' : '#bbb';
+      });
+      currentSlide = idx;
+    }
+
+    document.getElementById('prev-news').onclick = function() {
+      let idx = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(idx);
+    };
+    document.getElementById('next-news').onclick = function() {
+      let idx = (currentSlide + 1) % slides.length;
+      showSlide(idx);
+    };
+    dots.forEach((dot, i) => {
+      dot.onclick = () => showSlide(i);
+    });
+
+    // Optional: auto-advance every 10 seconds
+    setInterval(() => {
+      let idx = (currentSlide + 1) % slides.length;
+      showSlide(idx);
+    }, 10000);
+
+    // Initialize
+    showSlide(0);
+  </script>
+
+<hr style="margin: 2.5rem 0; border: none; border-top: 2px solid var(--brick);">
+
+  <h2>Events</h2>
+  <h3>Asia-Pacific Combustion Institute Summer School</h3>
+  <p style="text-align: justify;">
+    The main goal of the 3rd Asia-Pacific Combustion Institute Summer School is to introduce the combustion and fire safety community to fundamental combustion problems, focusing on studies of diffusion flames and their connection to large-scale fires. This year’s school will emphasize the link between combustion theory and practical applications in both industrial settings and real fire scenarios, contributing to create and strengthen the links between different academic institutions and research groups focused in the Asia Pacific and South American areas.
+
+    Scholarships will be awarded only to students, on the basis of merit. Applications to be considered for scholarships must be submitted before September 26, 2025. Results of the application process will be announced on Octuber 03, 2025.
+  </p>
+  <p style="text-align: justify;">
+    For more information about the school, please visit the official website: 
+    <a href="https://www.apciss.cl" target="_blank">https://www.apciss.cl</a>
+  </p>
+  <div id="countdown" style="font-size: 1.2em; color: var(--brick); font-weight: 600; margin-top: 10px; text-align: center;">
+    Start in: <span id="days">--</span> days, <span id="hours">--</span> hours, <span id="minutes">--</span> minutes, <span id="seconds">--</span> seconds
+  </div>
+  <script>
+    // Set the date and time for the event (YYYY-MM-DDTHH:MM:SS in local time or UTC)
+    // Example: July 15, 2025, 09:00:00 local time (adjust as needed)
+    const eventDate = new Date("2025-11-02T17:00:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = eventDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "The event has started!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+  
+</main>
+<footer>
+  &copy; 2025 EC2G - UTFSM
+</footer>
 </body>
 </html>
