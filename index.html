@@ -1,0 +1,1137 @@
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="codepixer">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>APCISS</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="css/linearicons.css">
+			<link rel="stylesheet" href="css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/magnific-popup.css">
+			<link rel="stylesheet" href="css/nice-select.css">
+			<link rel="stylesheet" href="css/animate.min.css">
+			<link rel="stylesheet" href="css/owl.carousel.css">
+			<link rel="stylesheet" href="css/main.css">
+
+			<script>
+				var ajax = {
+					isSubmiting: false,
+					send: function() {
+
+						if(ajax.isSubmiting == false) {
+							ajax.isSubmiting = true;
+
+							var userName = $("input[name=name]").val();
+							var userEmail = $("input[name=email]").val();
+							var userComments = $("textarea").val();
+
+							if(userName == "" || userEmail == "" || userComments == "")
+								alert("Form not complete");
+							else {
+
+								document.getElementById('sendbtn').value = 'Sending...';
+								$.post("mail2.php", {
+									name: userName, email: userEmail, comments: userComments
+								}, function(data) {
+									if(data == "true") {
+										document.getElementById('sendbtn').value = 'Sent!';
+									} else {
+										document.getElementById('sendbtn').value = 'Send mail';
+										alert(data);
+									}
+
+									ajax.isSubmiting = false;
+								});
+							}
+						}
+						else alert("You can only send 1 email at a time");
+					},
+					SetText: function(text) {
+						$("input[type=button]").val(text);
+					}
+				}
+			</script>
+
+		</head>
+		<script>
+  function actualizarCampos() {
+    const estudiante = document.getElementById("estudiante").value;
+    const contenedor = document.getElementById("lineaEstudiante");
+
+    // Limpiar columnas previas
+    contenedor.innerHTML = "";
+
+    if (estudiante === "yes") {
+      contenedor.className = "form-row";
+
+      // Columna 1: selector de estudiante (solo texto)
+      contenedor.innerHTML += `
+        <div class="form-group col-md-4">
+          <label>Are you a student?</label>
+          <select name="estudiante" id="estudiante" class="form-control" required onchange="actualizarCampos()">
+            <option value="no">No</option>
+            <option value="yes" selected>Yes</option>
+          </select>
+        </div>
+      `;
+
+      // Columna 2: selector de programa
+      contenedor.innerHTML += `
+        <div class="form-group col-md-4">
+          <label>Academic Program:</label>
+          <select name="programa" id="programa" class="form-control" onchange="mostrarOtroPrograma()">
+            <option value="PhD">PhD</option>
+            <option value="MSc">MSc</option>
+            <option value="BSc">BSc</option>
+            <option value="MEng">MEng</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      `;
+
+      // Columna 3: input libre (se ocultará si no es "Other")
+      contenedor.innerHTML += `
+        <div class="form-group col-md-4" id="col-otro" style="display:none;">
+          <label>Please specify:</label>
+          <input type="text" name="otro_programa" class="form-control">
+        </div>
+      `;
+    } else {
+      // Solo selector estudiante (100%)
+      contenedor.className = "form-row";
+      contenedor.innerHTML = `
+        <div class="form-group col-md-12">
+          <label>Are you a student?</label>
+          <select name="estudiante" id="estudiante" class="form-control" required onchange="actualizarCampos()">
+            <option value="no" selected>No</option>
+            <option value="yes">Yes</option>
+          </select>
+        </div>
+      `;
+    }
+  }
+
+  function mostrarOtroPrograma() {
+    const valor = document.getElementById("programa").value;
+    const otro = document.getElementById("col-otro");
+    otro.style.display = (valor === "Other") ? "block" : "none";
+  }
+</script>
+
+		<body>
+
+			  <header id="header" id="home">
+			    <div class="container">
+			    	<div class="row align-items-center justify-content-between d-flex">
+				      <div id="logo">
+								<a href="index.html"><img src="img/logo2.png" alt="" title="" style="width:30%"/></a>
+				        <a href="index.html"><img src="img/logo1.png" alt="" title="" /></a>
+				      </div>
+				      <nav id="nav-menu-container">
+				        <ul class="nav-menu">
+				          <li class="menu-active"><a href="#home">Home</a></li>
+									<li><a href="#schedule">Schedule</a></li>
+				          <li><a href="#speakers">Speakers</a></li>
+						  <li><a href="#scholarship">Scholarship</a></li>
+						  <li><a href="#register">Register</a></li>
+				          <!-- <li class="menu-has-children"><a href="">Venue</a>
+				            <ul>
+				              <li><a href="index.html">Hotels</a></li>
+											<li><a href="index.html">Valparaíso</a></li>
+											<li><a href="index.html">Travel</a></li>
+				              <li><a href="index.html">Visa Support</a></li>
+				            </ul> -->
+				          </li>
+				          <!--<li><a class="ticker-btn" href="#">Buy Ticket</a></li> -->
+				        </ul>
+				      </nav><!-- #nav-menu-container -->
+			    	</div>
+			    </div>
+			  </header><!-- #header -->
+
+
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row fullscreen d-flex align-items-center justify-content-center">
+						<div class="banner-content col-lg-9 col-md-12">
+							<h1 class="text-white"><br><br>
+							3rd Asia-Pacific Combustion Institute Summer School
+							</h1>
+							<h3 class="text-white">
+							Fundamental Combustion Problems Applied to Diffusion Flames
+							</h3>
+							<div class="countdown">
+								<div id="timer" class="text-white"></div>
+							</div>
+							<h4><span class="lnr lnr-calendar-full" style="color:#d6483e"></span>  2th - 7th november, 2025</h4>
+							<h4><span class="lnr lnr-map" style="color:#d6483e"></span>  Valparaíso - Viña del Mar, Chile</h4>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->
+			<!-- Start schedule Area -->
+			<!-- <section class="schedule-area pb-100" id="schedule">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10"><br>Summer School Schedule</h1>
+								<p>Fundamental Combustion Problems Applead to Diffusion Flames</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="table-wrap col-lg-12">
+							<table class="schdule-table table table-bordered">
+								<thead class="thead-light">
+									<tr>
+										<th class="head" scope="col">Date</th>
+										<th class="head" scope="col">Morning 1</th>
+										<th class="head" scope="col">Morning 2</th>
+										<th class="head" scope="col">Afternoon</th>
+										<th class="head" scope="col">Evening</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th class="name" scope="row" style="font-weight:bold;">Sun. 2</th>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>Welcome Reception</td>
+									</tr>
+									<tr>
+										<th class="name" scope="row" style="font-weight:bold;">Mon. 3</th>
+										<td>Introduction to combustion challenges in fire: bridging the scale gap</td>
+										<td>Fire dynamics</td>
+										<td>Fire spread and Solid phase combustion</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<th class="name" scope="row" style="font-weight:bold;">Tue. 4</th>
+										<td>Physics-based reduced order models</td>
+										<td>Machine learning applications in fire science</td>
+										<td>Emissions and Low-resource consumption energy systems</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<th class="name" scope="row" style="font-weight:bold;">Wed. 5</th>
+										<td>Radiative heat transfer</td>
+										<td>Diagnostics</td>
+										<td>Excursion Activity</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<th class="name" scope="row" style="font-weight:bold;">Thu. 6</th>
+										<td>Laminar diffusion flames</td>
+										<td>Turbulent diffusion flames</td>
+										<td>Poster session</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<th class="name" scope="row" style="font-weight:bold;">Fri. 7</th>
+										<td>Parallel session: Experimental workshop</td>
+										<td>Parallel session: Numerical workshop</td>
+										<td>Fire modelling</td>
+										<td>Farewell Cocktail</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</section> -->
+			<!-- End schedule Area -->
+
+			<!-- Start schedule Area -->
+			<section class="schedule-area pb-100" id="schedule">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10"><br>Summer School Schedule</h1>
+								<p>Fundamental Combustion Problems Applied to Diffusion Flames</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="table-wrap col-lg-12">
+							<table class="schdule-table table table-bordered">
+								  <thead class="thead-light">
+								    <tr>
+										<th class="head" scope="col">Date</th>
+										<th class="head" scope="col" colspan="2">Morning </th>
+										<th class="head" scope="col" colspan="2">Afternoon </th>
+										<th class="head" scope="col">Evening</th>
+									</tr>
+								  </thead>
+								  <tbody>
+									<tr>
+										<th class="name" scope="row" style="font-weight:bold;">Sun. 2</th>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td style="font-weight:bold;text-align:center;vertical-align:middle">Welcome Reception</td>
+									</tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th scope="row" rowspan="2" style="text-align:center;vertical-align:middle;font-weight:bold;">Mon. 3</th>
+											<td style="font-weight:bold;text-align:center;vertical-align:middle">Introduction to combustion challenges in fire: bridging the scale gap</td>
+											<td style="font-weight:bold;text-align:center;vertical-align:middle">Laminar diffusion flames </td>
+											<td style="font-weight:bold;text-align:center;vertical-align:middle">Turbulent diffusion flames</td>
+											<td style="font-weight:bold;text-align:center;vertical-align:middle">Radiative Heat Transfer</td>
+											<td style="font-weight:bold;text-align:center;vertical-align:middle">-</td>
+										</tr>
+								   <tr>
+								      <td style="font-style:italic;">EC2G</td>
+								      <td style="font-style:italic;">Jacqueline Chen</td>
+								      <td style="font-style:italic;">Jean Louis Consalvi</td>
+								      <td style="font-style:italic;">Gilles Parent</td>
+								      <td style="font-style:italic;"></td>
+								    </tr>
+									</tbody>
+									<tbody>
+								   <tr>
+								      <th scope="row" rowspan="2" style="text-align:center;vertical-align:middle;font-weight:bold;">Tue. 4</th>
+								      <td style="font-weight:bold;text-align:center;vertical-align:middle">Physics based reduced order models and machine learning</td>
+								      <td style="font-weight:bold;text-align:center;vertical-align:middle">Fire Spread and Flammability</td>
+								      <td style="font-weight:bold;text-align:center;vertical-align:middle">Emissions </td>
+								      <td style="font-weight:bold;text-align:center;vertical-align:middle">Low carbon technologies</td>
+								      <td style="font-weight:bold;text-align:center;vertical-align:middle">-</td>
+								    </tr>
+										<tr>
+											 <td style="font-style:italic;">Jacqueline Chen</td>
+											 <td style="font-style:italic;">A. Carlos Fernandez-Pello</td>
+											 <td style="font-style:italic;">Margaret Wooldridge</td>
+											 <td style="font-style:italic;">Margaret Wooldridge</td>
+											 <td style="font-style:italic;"></td>
+										 </tr>
+									 </tbody>
+									<tbody>
+								   <tr>
+								      <th scope="row" rowspan="2" style="text-align:center;vertical-align:middle;font-weight:bold;">Wed. 5</th>
+								      <td style="font-weight:bold;text-align:center;vertical-align:middle">Fire dynamics </td>
+								      <td style="font-weight:bold;text-align:center;vertical-align:middle">Spectrometry and flame radiative emissions</td>
+								      <td colspan="2" style="text-align:center;vertical-align:middle;font-weight:bold;">Excursion Activity</td>
+								      <td style="font-weight:bold;">-</td>
+								    </tr>
+										<tr>
+											 <td style="font-style:italic;">Bart Merci</td>
+											 <td style="font-style:italic;">Gilles Parent</td>
+											 <td colspan="2" style="text-align:center;vertical-align:middle;font-weight:bold;">-</td>
+											 <td style="font-style:italic;"></td>
+										 </tr>
+									 </tbody>
+									<tbody>
+								   <tr>
+								      <th scope="row" rowspan="2" style="text-align:center;vertical-align:middle;font-weight:bold;">Thu. 6</th>
+								      <td style="font-weight:bold;text-align:center;vertical-align:middle">Flammability testing</td>
+								      <td style="font-weight:bold;text-align:center;vertical-align:middle">Fire modelling</td>
+								      <td colspan="2" style="text-align:center;vertical-align:middle;font-weight:bold;">Poster session</td>
+								      <td style="font-weight:bold;">-</td>
+								    </tr>
+										<tr>
+											 <td style="font-style:italic;">Dong Zeng</td>
+											 <td style="font-style:italic;">Bart Merci</td>
+											 <td colspan="2" style="text-align:center;vertical-align:middle;font-weight:bold;">-</td>
+											 <td style="font-style:italic;"></td>
+										 </tr>
+									 </tbody>
+									<tbody>
+								   <tr>
+								      <th scope="row" rowspan="2" style="text-align:center;vertical-align:middle;font-weight:bold;">Fri. 7</th>
+								      <td colspan="2" style="text-align:center;vertical-align:middle;font-weight:bold;">Parallel session: <br> Experimental workshop <br> Numerical workshop</td>
+								      <td colspan="2" style="text-align:center;vertical-align:middle;font-weight:bold;">Parallel session: <br> Experimental workshop <br> Numerical workshop</td>
+								      <td style="font-weight:bold;">Farewell cocktail</td>
+								    </tr>
+										<tr>
+											<td colspan="2" style="text-align:center;vertical-align:middle;">Marek Mazur - Gilles Parent <br> Guenther Krieger</td>
+											<td colspan="2" style="text-align:center;vertical-align:middle;">Marek Mazur - Gilles Parent <br> Guenther Krieger</td>
+											 <td style="font-style:italic;"></td>
+										 </tr>
+									 </tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End schedule Area -->
+
+			<!-- Start speakers Area -->
+			<!-- <section class="spekers-area pb-100" id="speakers">
+				<div class="container-fluid">
+					<div class="row no-padding">
+						<div class="active-speaker-carusel col-lg-12 no-padding">
+							<div class="single-speaker item">
+								<div class="container">
+									<div class="row align-items-center">
+										<div class="col-md-6 speaker-img no-padding">
+											<img src="img/s1.jpg" alt="">
+										</div>
+										<div class="col-md-6 speaker-info no-padding">
+											<h6 class="text-uppercase" style="color:#d6483e">Speaker 01</h6>
+											<h1 class="text-white">Essie Ballard</h1>
+											<p>
+												Computer users and programmers have become so accustomed to using Windows, even for the changing capabilities and the appearances.
+											</p>
+											<p><span class="lnr lnr-phone-handset"></span>+880 (012) 8954 253</p>
+											<p><span class="lnr lnr-location"></span>iamspeaker@gmail.com</p>
+											<ul>
+												<a href="#"><i class="fa fa-facebook"></i></a>
+												<a href="#"><i class="fa fa-twitter"></i></a>
+												<a href="#"><i class="fa fa-dribbble"></i></a>
+												<a href="#"><i class="fa fa-behance"></i></a>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="single-speaker item">
+								<div class="container">
+									<div class="row align-items-center">
+										<div class="col-md-6 speaker-img no-padding">
+											<img src="img/s2.jpg" alt="">
+										</div>
+										<div class="col-md-6 speaker-info no-padding">
+											<h6 class="text-uppercase" style="color:#d6483e">Speaker 02</h6>
+											<h1 class="text-white">Elizabeth Stokes</h1>
+											<p>
+												Computer users and programmers have become so accustomed to using Windows, even for the changing capabilities and the appearances.
+											</p>
+											<p><span class="lnr lnr-phone-handset"></span>+880 (012) 8954 253</p>
+											<p><span class="lnr lnr-location"></span>iamspeaker@gmail.com</p>
+											<ul>
+												<a href="#"><i class="fa fa-facebook"></i></a>
+												<a href="#"><i class="fa fa-twitter"></i></a>
+												<a href="#"><i class="fa fa-dribbble"></i></a>
+												<a href="#"><i class="fa fa-behance"></i></a>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="single-speaker item">
+								<div class="container">
+									<div class="row align-items-center">
+										<div class="col-md-6 speaker-img no-padding">
+											<img src="img/s1.jpg" alt="">
+										</div>
+										<div class="col-md-6 speaker-info no-padding">
+											<h6 class="text-uppercase" style="color:#d6483e">Speaker 03</h6>
+											<h1 class="text-white">Essie Ballard</h1>
+											<p>
+												Computer users and programmers have become so accustomed to using Windows, even for the changing capabilities and the appearances.
+											</p>
+											<p><span class="lnr lnr-phone-handset"></span>+880 (012) 8954 253</p>
+											<p><span class="lnr lnr-location"></span>iamspeaker@gmail.com</p>
+											<ul>
+												<a href="#"><i class="fa fa-facebook"></i></a>
+												<a href="#"><i class="fa fa-twitter"></i></a>
+												<a href="#"><i class="fa fa-dribbble"></i></a>
+												<a href="#"><i class="fa fa-behance"></i></a>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="single-speaker item">
+								<div class="container">
+									<div class="row align-items-center">
+										<div class="col-md-6 speaker-img no-padding">
+											<img src="img/s2.jpg" alt="">
+										</div>
+										<div class="col-md-6 speaker-info no-padding">
+											<h6 class="text-uppercase" style="color:#d6483e">Speaker 04</h6>
+											<h1 class="text-white">Elizabeth Stokes</h1>
+											<p>
+												Computer users and programmers have become so accustomed to using Windows, even for the changing capabilities and the appearances.
+											</p>
+											<p><span class="lnr lnr-phone-handset"></span>+880 (012) 8954 253</p>
+											<p><span class="lnr lnr-location"></span>iamspeaker@gmail.com</p>
+											<ul>
+												<a href="#"><i class="fa fa-facebook"></i></a>
+												<a href="#"><i class="fa fa-twitter"></i></a>
+												<a href="#"><i class="fa fa-dribbble"></i></a>
+												<a href="#"><i class="fa fa-behance"></i></a>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section> -->
+
+
+			<!-- End spekers Area -->
+<!-- Start speakers Area -->
+<section class="spekers-area pb-100" id="speakers">
+	<div class="container-fluid">
+		<div class="row no-padding">
+			<div class="menu-content pb-70 col-lg-12">
+				<div class="title text-center">
+					<h1 class="mb-10"><br>Confirmed Speakers</h1>
+				</div>
+			</div>
+			<div class="active-speaker-carusel col-lg-12 no-padding">
+				<div class="single-speaker item">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-md-6 speaker-img no-padding">
+								<img src="img/speakers_pics/Fernandez-Pello-Carlos.jpg" alt="Carlos Fernandez-Pello">
+							</div>
+							<div class="col-md-6 speaker-info no-padding">
+								<h6 class="text-uppercase" style="color:#d6483e">Speaker 01</h6>
+								<h1 class="text-white">A. Carlos Fernandez-Pello</h1>
+								<p> University of California Berkeley, USA</p>
+								<!-- <p>Dr. Carlos Fernandez-Pello is a Distinguished Professor of the Graduate School in Mechanical Engineering at the University of California, Berkeley, USA. He received degrees of Doctor Aeronautical Engineer from the University of Madrid, Spain, and a Ph.D. in Engineering Sciences from the University of California, San Diego. He was a Postdoctoral Fellow at Harvard University, and a Research Faculty at Princeton University. He joined the University of California, Berkeley, in 1980, where he teaches and conducts research in thermal sciences with emphasis in combustion. He held the Maynard Chair Professorship in Mechanical Engineering, and was also Associate Dean of the Graduate Division, where he supervised several units related to university wide graduate studies. He is a member of the Royal Academy of Engineering of Spain, a Fellow of the Combustion Institute and of the ASME International. He is an Honorary Dr. of Engineering from the Universidad Nacional San Marcos, Peru. He has been an Invited Visiting Professor at universities and research laboratories in Japan, China, Italy, France, and Australia. His recent research emphasizes material flammability in earth and spacecraft environments, and wildland fire spotting. Through his career he has studied ignition, smoldering and flaming, micro-scale combustion, external effects on flames, and solar energy storage. His research is, or has been funded, by NASA, NSF, NIST, DARPA, DOE and ARO. He is co-author of the book “Fundamental of Combustion Processes” and of five book chapters. He has over 270 publications in peer reviewed journals and over 300 hundred non-reviewed papers.</p> -->
+								<!-- <p><span class="lnr lnr-location"></span> - </p> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="single-speaker item">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-md-6 speaker-img no-padding">
+								<img src="img/speakers_pics/Bart Merci Headshot.jpg" alt="Bart Merci">
+							</div>
+							<div class="col-md-6 speaker-info no-padding">
+								<h6 class="text-uppercase" style="color:#d6483e">Speaker 02</h6>
+								<h1 class="text-white">Bart Merci</h1>
+								<p>Universiteit Gent, Belgium</p>
+								<!-- <p><span class="lnr lnr-location"></span> - </p> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="single-speaker item">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-md-6 speaker-img no-padding">
+								<img src="img/speakers_pics/margaret_wooldridge.jpg" alt="Micheal Wooldridge">
+							</div>
+							<div class="col-md-6 speaker-info no-padding">
+								<h6 class="text-uppercase" style="color:#d6483e">Speaker 03</h6>
+								<h1 class="text-white">Margaret Wooldridge</h1>
+								<p>University of Michigan, USA</p>
+								<!-- <p><span class="lnr lnr-location"></span> - </p> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="single-speaker item">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-md-6 speaker-img no-padding">
+								<img src="img/speakers_pics/dong_zeng.jpeg" alt="Dong Zeng">
+							</div>
+							<div class="col-md-6 speaker-info no-padding">
+								<h6 class="text-uppercase" style="color:#d6483e">Speaker 04</h6>
+								<h1 class="text-white">Dong Zeng</h1>
+								<p>FM Global, USA</p>
+								<!-- <p><span class="lnr lnr-location"></span> - </p> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="single-speaker item">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-md-6 speaker-img no-padding">
+								<img src="img/speakers_pics/JL_consalvi.webp" alt="JL Consalvi">
+							</div>
+							<div class="col-md-6 speaker-info no-padding">
+								<h6 class="text-uppercase" style="color:#d6483e">Speaker 05</h6>
+								<h1 class="text-white">Jean Louis Consalvi</h1>
+								<p>Universtité d'Aix-Marseille, France</p>
+								<!-- <p><span class="lnr lnr-location"></span> - </p> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="single-speaker item">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-md-6 speaker-img no-padding">
+								<img src="img/speakers_pics/gilles_parent.jpeg" alt="Gilles Parent">
+							</div>
+							<div class="col-md-6 speaker-info no-padding">
+								<h6 class="text-uppercase" style="color:#d6483e">Speaker 06</h6>
+								<h1 class="text-white">Gilles Parent</h1>
+								<p>Université de Lorraine, France</p>
+								<!-- <p><span class="lnr lnr-location"></span> - </p> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="single-speaker item">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-md-6 speaker-img no-padding">
+								<img src="img/speakers_pics/Marek_mazur.jpeg" alt="M. Mazur">
+							</div>
+							<div class="col-md-6 speaker-info no-padding">
+								<h6 class="text-uppercase" style="color:#d6483e">Speaker 07</h6>
+								<h1 class="text-white">Marek Mazur</h1>
+								<p>INSA Rouen Normandie / CORIA, France</p>
+								<!-- <p><span class="lnr lnr-location"></span> - </p> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="single-speaker item">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-md-6 speaker-img no-padding">
+								<img src="img/speakers_pics/guenther.jpeg" alt="Guenther">
+							</div>
+							<div class="col-md-6 speaker-info no-padding">
+								<h6 class="text-uppercase" style="color:#d6483e">Speaker 08</h6>
+								<h1 class="text-white">Guenther Carlos Krieger Filho</h1>
+								<p>University of Sao Paulo, Brazil</p>
+								<p><span class="lnr lnr-location"></span> - </p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="single-speaker item">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-md-6 speaker-img no-padding">
+								<img src="img/speakers_pics/chen.webp" alt="J. Chen">
+							</div>
+							<div class="col-md-6 speaker-info no-padding">
+								<h6 class="text-uppercase" style="color:#d6483e">Speaker 09</h6>
+								<h1 class="text-white">Jacqueline H. Chen</h1>
+								<p>Sandia National Laboratories, USA</p>
+								<!-- <p><span class="lnr lnr-location"></span> - </p> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Start How to Apply Info -->
+<section class="pt-70 pb-20" id="scholarship"> <!-- reduce bottom padding -->
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-10">
+        <div class="title text-center">
+          <h2 class="mb-20">Scholarships </br>How to apply?</h2>
+          <hr style="width: 80px; border-top: 2px solid #d6483e; margin: auto; margin-bottom: 30px;">
+        </div>
+
+        <div style="font-size: 16px; line-height: 1.7; text-align: justify;">
+          <!-- <p><em>The application deadline</em> has been extended until <strong>November 7</strong> for those who have not yet been able to send all their documents. <em>The results</em> will be available on <strong>November 10</strong>.</p> -->
+
+          <p>Scholarships will be awarded only to students, on the basis of merit. <em><strong>Applications to be considered for scholarships must be submitted before September 26, 2025</strong></em>. Results of the application process will be announced on Octuber 03, 2025.</p>
+
+          <p>The following information is required for the selection process:</p>
+
+          <div style="margin-left: 20px;">
+            <ol style="padding-left: 20px;">
+              <li>1.- Personal Statement explaining why you should receive the scholarship (1 page, PDF)</li>
+              <li>2.- Abstract of your current research, that once accepted, will be presented in the school poster session (1 page, PDF)</li>
+              <li>3.- Curriculum Vitae (2 pages, PDF)</li>
+              <li>4.- A recommendation letter from your academic supervisor (PDF)</li>
+            </ol>
+          </div>
+
+          <p>Students must complete the Application Form (below) and include all the requested information.</p>
+
+          <p>For the Parallel Workshop Sessions, students will be divided into Experimental or Modeling Activities based on the provided information.</p>
+
+		  <p>Scholarship recipients are required to participate in the poster session included in the program. Relevant information regarding this session will be provided in due time.</p>
+          <p>At the poster session, participants should remain next to his/her poster to provide information about their contribution.</p>
+
+          <p>Participants are expected to attend the full set of academic activities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End How to Apply Info -->
+
+
+<!-- Start Registration Area -->
+<section class="form-container section-gap" id="register">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="menu-content col-lg-8">
+        <div class="title text-center">
+          <h1 class="mb-10">Registration Form</h1>
+          <p>Please fill in the form to register for APCISS 2025</p>
+        </div>
+      </div>
+    </div>
+
+    <form action="register.php" method="POST" enctype="multipart/form-data">
+      <!-- Nombres y Apellidos -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>First Name:</label>
+          <input type="text" name="nombre" class="form-control" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label>Last Name:</label>
+          <input type="text" name="apellido" class="form-control" required>
+        </div>
+      </div>
+
+      <!-- Correo -->
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" name="correo" class="form-control" required>
+      </div>
+
+      <!-- Organización -->
+      <div class="form-group">
+        <label>Organization:</label>
+        <input type="text" name="organizacion" class="form-control" required>
+      </div>
+
+      <!-- Línea estudiante + programa -->
+      <div class="form-row" id="lineaEstudiante">
+        <div class="form-group col-md-12" id="col-estudiante">
+          <label>Are you a student?</label>
+          <select name="estudiante" id="estudiante" class="form-control" required onchange="actualizarCampos()">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Archivos -->
+      	<div class="form-group">
+			<label>Attach Supporting Documents (PDF only, max 10MB each):</label><br>
+			<button type="button" class="btn btn-outline-secondary" onclick="document.getElementById('archivoInput').click()">Add File</button>
+			<!-- <input type="file" id="archivoInput" accept="application/pdf" style="display:none" onchange="agregarArchivos(event)"> -->
+			<!-- <input type="file" id="archivoInput" accept="application/pdf" multiple style="display:none" onchange="agregarArchivos(event)"> -->
+			<input type="file" name="archivos[]" id="archivoInput" accept="application/pdf" multiple style="display:none" onchange="agregarArchivos(event)">
+			<div id="listaArchivos" class="mt-2" style="font-size: 0.9em;"></div>
+	  	</div>	
+
+
+      <!-- Botón -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Send Registration</button>
+		<p>* Note: If you are not applying for a scholarship, you do not need to send any documents.</p>
+      </div>
+    </form>
+	<div>
+		<h1>Please  be aware and ignore any possible malicious mail pretending to be from the school organization. <br>The only account that is allowed to contact you is info@apciss.cl.</h1>
+	</div>
+  </div>
+</section>
+<!-- End Registration Area -->
+
+
+<script>
+  function togglePrograma() {
+    var estudiante = document.getElementById("estudiante").value;
+    var field = document.getElementById("programaField");
+    field.style.display = (estudiante === "yes") ? "block" : "none";
+  }
+</script>
+<script>
+  function mostrarArchivos() {
+    const input = document.getElementById('archivoInput');
+    const lista = document.getElementById('listaArchivos');
+    lista.innerHTML = "";
+
+    if (input.files.length > 0) {
+      const ul = document.createElement("ul");
+      ul.style.paddingLeft = "20px";
+
+      Array.from(input.files).forEach(file => {
+        const li = document.createElement("li");
+        li.textContent = file.name;
+        ul.appendChild(li);
+      });
+
+      lista.appendChild(ul);
+    }
+  }
+</script>
+<script>
+  let archivosBuffer = [];
+
+  function agregarArchivos(event) {
+    const nuevosArchivos = Array.from(event.target.files);
+
+    nuevosArchivos.forEach(file => {
+    //   if (file.size <= 5 * 1024 * 1024 && file.type === "application/pdf") {
+	if (file.size <= 10 * 1024 * 1024 && file.type === "application/pdf") {
+        archivosBuffer.push(file);
+      } else {
+        alert("Only PDF files up to 5MB are allowed.");
+      }
+    });
+
+    mostrarListaArchivos();
+    // event.target.value = '';  // Limpiar input para poder volver a seleccionar el mismo archivo si se desea
+  }
+
+  function mostrarListaArchivos() {
+    const lista = document.getElementById("listaArchivos");
+    lista.innerHTML = "";
+
+    if (archivosBuffer.length > 0) {
+      const ul = document.createElement("ul");
+      ul.style.paddingLeft = "20px";
+
+      archivosBuffer.forEach((file, index) => {
+        const li = document.createElement("li");
+        li.textContent = file.name + " ";
+        const btn = document.createElement("button");
+        btn.textContent = "Remove";
+        btn.type = "button";
+        btn.className = "btn btn-sm btn-danger ml-2";
+        btn.onclick = () => {
+          archivosBuffer.splice(index, 1);
+          mostrarListaArchivos();
+        };
+        li.appendChild(btn);
+        ul.appendChild(li);
+      });
+
+      lista.appendChild(ul);
+    }
+  }
+
+//   // En el envío del formulario (esto lo agregas a tu script actual de envío o PHP)
+//   document.querySelector("form").addEventListener("submit", function (e) {
+//     const formData = new FormData(this);
+//     archivosBuffer.forEach(file => formData.append("archivos[]", file));
+
+//     // Aquí puedes usar fetch para enviar los datos si quieres evitar recarga de página
+//     // e.preventDefault();
+//     // fetch("register.php", {
+//     //   method: "POST",
+//     //   body: formData
+//     // }).then(...);
+//   });
+</script>
+
+
+
+<!-- End speakers Area -->
+
+
+		<!-- Start home-video Area -->
+		<!--	<section class="home-video-area">
+				<div class="container-fluid">
+					<div class="row justify-content-end align-items-center">
+						<div class="col-lg-4 no-padding about-right">
+							<p class="top-title">Tutorial for beginner</p>
+							<h1>We Telecast our <br>
+							Coffee Making Live</h1>
+							<p><span>We are here to listen from you deliver exellence</span></p>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. magna aliqua. Ut enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. magna aliqua. Ut enim ad minim.
+							</p>
+						</div>
+						<section class="video-area col-lg-6 no-padding">
+							<div class="overlay overlay-bg"></div>
+							<div class="containers">
+								<div class="video-content">
+									<img class="img-fluid" src="img/about1.jpg" alt="">
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</section> -->
+			<!-- End home-aboutus Area -->
+
+
+			<!-- Start home-aboutus Area -->
+		<!--	<section class="home-aboutus-area">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-lg-8 no-padding about-left">
+							<img class="img-fluid" src="img/about2.jpg" alt="">
+						</div>
+						<div class="col-lg-4 no-padding about-right">
+							<p class="top-title">24/7 Support system</p>
+							<h1 class="text-white">We Telecast our<br>
+							Coffee Making Live</h1>
+							<p><span>We are here to listen from you deliver exellence</span></p>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. magna aliqua. Ut enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. magna aliqua. Ut enim ad minim.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section> -->
+			<!-- End home-aboutus Area -->
+
+			<!-- Start video-sec Area -->
+		<!--	<section class="video-sec-area section-gap" id="videos">
+				<div class="container">
+					<div class="row justify-content-center align-items-center ">
+						<div class="col-lg-6 video-left">
+							<h6>Brand new app to blow your mind</h6>
+							<h1>We’ve made a life <br>
+							that will change you</h1>
+							<p><span>We are here to listen from you deliver exellence</span></p>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+							</p>
+							<a class="primary-btn" href="#">Get Started now</a>
+						</div>
+						<div class="col-lg-6">
+							<div class="active-video-carusel">
+									<div class="item video-right justify-content-center align-items-center d-flex" style="background:url(img/video-bg.jpg) no-repeat center;background-size: cover;">
+									<div class="overlay overlay-bg"></div>
+									<a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img class="img-fluid" src="img/play-icon.png" alt=""></a>
+									</div>
+									<div class="item video-right justify-content-center align-items-center d-flex" style="background:url(img/video-bg.jpg) no-repeat center;background-size: cover;">
+									<div class="overlay overlay-bg"></div>
+									<a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img class="img-fluid" src="img/play-icon.png" alt=""></a>
+									</div>
+									<div class="item video-right justify-content-center align-items-center d-flex" style="background:url(img/video-bg.jpg) no-repeat center;background-size: cover;">
+									<div class="overlay overlay-bg"></div>
+									<a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img class="img-fluid" src="img/play-icon.png" alt=""></a>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section> -->
+			<!-- End video-sec Area -->
+
+			<!-- Start price Area -->
+		<!--	<section class="price-area section-gap">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">How Our Customers Treat Us</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-3 col-md-6 single-price">
+							<div class="top-part">
+								<h1 class="package-no">01</h1>
+								<h4>Economy</h4>
+								<p>For the individuals</p>
+							</div>
+							<div class="package-list">
+								<ul>
+									<li>Secure Online Transfer</li>
+									<li>Unlimited Styles for interface</li>
+									<li>Reliable Customer Service</li>
+								</ul>
+							</div>
+							<div class="bottom-part">
+								<h1>£199.00</h1>
+								<a class="price-btn text-uppercase" href="#">Buy Now</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 single-price">
+							<div class="top-part">
+								<h1 class="package-no">02</h1>
+								<h4>Business</h4>
+								<p>For the individuals</p>
+							</div>
+							<div class="package-list">
+								<ul>
+									<li>Secure Online Transfer</li>
+									<li>Unlimited Styles for interface</li>
+									<li>Reliable Customer Service</li>
+								</ul>
+							</div>
+							<div class="bottom-part">
+								<h1>£199.00</h1>
+								<a class="price-btn text-uppercase" href="#">Buy Now</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 single-price">
+							<div class="top-part">
+								<h1 class="package-no">03</h1>
+								<h4>Premium</h4>
+								<p>For the individuals</p>
+							</div>
+							<div class="package-list">
+								<ul>
+									<li>Secure Online Transfer</li>
+									<li>Unlimited Styles for interface</li>
+									<li>Reliable Customer Service</li>
+								</ul>
+							</div>
+							<div class="bottom-part">
+								<h1>£199.00</h1>
+								<a class="price-btn text-uppercase" href="#">Buy Now</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 single-price">
+							<div class="top-part">
+								<h1 class="package-no">04</h1>
+								<h4>Exclusive</h4>
+								<p>For the individuals</p>
+							</div>
+							<div class="package-list">
+								<ul>
+									<li>Secure Online Transfer</li>
+									<li>Unlimited Styles for interface</li>
+									<li>Reliable Customer Service</li>
+								</ul>
+							</div>
+							<div class="bottom-part">
+								<h1>£199.00</h1>
+								<a class="price-btn text-uppercase" href="#">Buy Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section> -->
+			<!-- End price Area -->
+
+			<!-- Start brand Area -->
+		<!--	<section class="brand-area section-gap">
+				<div class="container">
+					<div class="row logo-wrap">
+						<a class="col single-img" href="www.uai.cl">
+							<img class="d-block mx-auto" src="img/uai.png" alt="">
+						</a>
+						<a class="col single-img" href="www.usm.cl">
+							<img class="d-block mx-auto" src="img/uftsm.png" alt="">
+						</a>
+						<a class="col single-img" href="#">
+							<img class="d-block mx-auto" src="img/l3.png" alt="">
+						</a>
+						<a class="col single-img" href="#">
+							<img class="d-block mx-auto" src="img/l4.png" alt="">
+						</a>
+						<a class="col single-img" href="#">
+							<img class="d-block mx-auto" src="img/l5.png" alt="">
+						</a>
+					</div>
+				</div>
+			</section> -->
+			<!-- End brand Area -->
+
+
+			<!-- Start callaction Area -->
+		<!--	<section class="callaction-area relative section-gap">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-lg-10">
+							<h1 class="text-white">Huge Transaction in last Week</h1>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+							</p>
+							<a class="callaction-btn" href="#">Become a Member</a>
+						</div>
+					</div>
+				</div>
+			</section> -->
+			<!-- End callaction Area -->
+
+
+			<!-- start footer Area -->
+			<footer class="footer-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h6>About the Summer School</h6>
+								<p style="text-align: justify;">
+									The main goal of the 3rd Asia-Pacific Combustion Institute Summer School is to introduce the
+									combustion and fire safety community to fundamental combustion problems, focusing on studies of
+									diffusion flames and their connection to large-scale fires. This year’s school will emphasize the link
+									between combustion theory and practical applications in both industrial settings and real fire scenarios,
+									contributing to create and strengthen the links between different academic institutions and research
+									groups focused in the Asia Pacific and South American areas.
+									<!-- The 1st Asia-Pacific Combustion Institute Summer School — Fundamental Combustion Problems in Fires (APCISS-1) is to introduce intermediate graduate students, industrial researchers and practicing engineers to fundamental combustion problems applied to outdoor and structural fires. We expect this school to contribute to create and reinforce the collaboration bonds between different academic institutions and research groups in the Asia Pacific and South America. -->
+								</p>
+								<p class="footer-text">
+									Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-6  col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h6>Contact Us</h6>
+								<p>Do you have any questions about the summer school?</p>
+								<div class="" id="mc_embed_signup">
+									<input type="text" class="form-control" name="name" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'" required="" style="margin: 8px 0; border-radius: 4px;">
+									<input type="text" class="form-control" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email '" required="" style="margin: 8px 0; border-radius: 4px;">
+									<textarea class="form-control" name="comments" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required="" style="margin: 8px 0; width:80%;"></textarea>
+								<!--	<form target="_blank" novalidate="true" action="mail-script.js" method="post" class="form-inline" id="form_contact">
+										<input class="form-control" type="text" name="name" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'" required="" style="margin: 8px 0; border-radius: 4px;">
+										<input class="form-control" type="text" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email '" required="" style="margin: 8px 0; border-radius: 4px;">
+										<textarea class="form-control" type="text" name="message" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required="" style="margin: 8px 0; width:80%;"></textarea>
+									</form> -->
+									<input type="button" value="Send mail" onClick="ajax.send()" id="sendbtn" class="click-btn btn btn-default" style="border-radius: 4px;">
+									<div style="position: absolute; left: -5000px;">
+										<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text" style="color:#d6483e>
+									</div>
+									<div class="info" ></div>
+								</div>
+							</div>
+						</div>
+					<!-- <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+							<div class="single-footer-widget">
+								<h6>Follow Us</h6>
+								<p>Let us be social</p>
+								<div class="footer-social d-flex align-items-center">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-dribbble"></i></a>
+									<a href="#"><i class="fa fa-behance"></i></a>
+								</div>
+							</div>
+						</div>  -->
+					</div>
+				</div>
+			</footer>
+			<!-- End footer Area -->
+
+			<script src="js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="js/vendor/bootstrap.min.js"></script>
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="js/easing.min.js"></script>
+			<script src="js/hoverIntent.js"></script>
+			<script src="js/superfish.min.js"></script>
+			<script src="js/jquery.ajaxchimp.min.js"></script>
+			<script src="js/jquery.magnific-popup.min.js"></script>
+			<script src="js/owl.carousel.min.js"></script>
+			<script src="js/jquery.sticky.js"></script>
+			<script src="js/jquery.nice-select.min.js"></script>
+			<script src="js/parallax.min.js"></script>
+			<script src="js/mail-script.js"></script>
+			<script src="js/main.js"></script>
+		</body>
+	</html>
