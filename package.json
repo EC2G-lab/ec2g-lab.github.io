@@ -1,0 +1,35 @@
+{
+  "name": "ec2g-website",
+  "version": "1.0.0",
+  "description": "EC2G Group website - Energy Conversion and Combustion Group at Universidad Técnica Federico Santa María",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build.js",
+    "validate": "node build.js",
+    "serve": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "research",
+    "combustion",
+    "energy",
+    "academic",
+    "website",
+    "utfsm"
+  ],
+  "author": "EC2G Group",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ec2g-lab/ec2g-lab.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ec2g-lab/ec2g-lab.github.io/issues"
+  },
+  "homepage": "https://ec2g-lab.github.io",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+} 

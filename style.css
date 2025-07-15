@@ -1,122 +1,104 @@
+/* ===== CSS VARIABLES ===== */
+:root {
+  --brick: #b85638;
+  --gray-text: #444;
+  --nav-radius: 2.2em;
+  --nav-padding: 11px 22px;
+  --header-height: 140px;
+  --max-width: 1200px;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  --transition: all 0.2s ease;
+}
+
+/* ===== GLOBAL STYLES ===== */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Fira Sans', Arial, sans-serif;
-  background: #fafaff;
   margin: 0;
-}
-
-header {
   background: #fff;
-  color: #003366;
-  padding: 20px 0;
-  text-align: center;
-}
-
-nav {
-  background: #005599;
-  padding: 10px 0;
-  text-align: center;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: bold;
-  padding: 6px 12px;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
-
-nav a:hover {
-  background: #003366;
-}
-
-main {
-  max-width: 1200px;
-  margin: 140px auto 0 auto;  /* Leave room for your fixed header */
-  padding: 0 20px;
-}
-
-footer {
-  text-align: center;
-  background: #003366;
-  color: #fff;
-  padding: 15px 0;
-}
-
-.logo {
-  max-height: 80px;
-}
-
-/* Staff Profile Styles (for individual pages) */
-.staff-profile {
-  background: #fff;
-  border-radius: 8px;
-  padding: 30px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  margin-bottom: 30px;
-}
-
-.staff-profile h2 {
-  color: #003366;
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2.2em;
-}
-
-.profile-info {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-}
-
-.profile-image {
-  flex-shrink: 0;
-}
-
-.profile-details {
-  flex: 1;
-}
-
-.profile-details h3 {
-  color: #005599;
-  border-bottom: 2px solid #005599;
-  padding-bottom: 5px;
-  margin-top: 25px;
-  margin-bottom: 15px;
-}
-
-.profile-details h3:first-child {
-  margin-top: 0;
-}
-
-.profile-details p {
-  margin: 8px 0;
+  color: var(--gray-text);
   line-height: 1.6;
 }
 
-.profile-details ul {
-  margin: 10px 0;
-  padding-left: 20px;
+/* ===== HEADER & NAVIGATION ===== */
+header {
+  background: #fff;
+  border-bottom: 2px solid var(--brick);
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: var(--box-shadow);
 }
 
-.profile-details li {
-  margin: 8px 0;
-  line-height: 1.5;
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px 24px 16px 24px;
+  gap: 40px;
 }
 
-/* Responsive design for staff profiles */
-@media (max-width: 768px) {
-  .profile-info {
-    flex-direction: column;
-    text-align: center;
-  }
-  .profile-image {
-    margin-bottom: 20px;
-  }
+.header-logo img {
+  display: block;
+  height: 90px;
+  width: auto;
+  border-radius: var(--border-radius);
+  background: none;
+  padding: 4px;
+  box-shadow: none;
 }
 
-/* Staff Card Grid Styles */
+.header-nav {
+  display: flex;
+  gap: 18px;
+  background: #fff;
+  border: 2.2px solid var(--brick);
+  border-radius: var(--nav-radius);
+  padding: 0 12px;
+  box-shadow: 0 2px 18px rgba(184,86,56,0.05);
+}
+
+.header-nav a {
+  color: var(--gray-text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.13rem;
+  padding: var(--nav-padding);
+  border-radius: 1.7em;
+  letter-spacing: 0.01em;
+  transition: var(--transition);
+  display: block;
+}
+
+.header-nav a:hover, 
+.header-nav a:focus {
+  background: var(--brick);
+  color: #fff;
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+  max-width: 1000px;
+  margin: var(--header-height) auto 0 auto;
+  padding: 0 20px;
+  min-height: 80vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--brick);
+  margin-top: 0;
+}
+
+/* ===== STAFF CARDS ===== */
 .staff-list {
   display: flex;
   flex-wrap: wrap;
@@ -135,10 +117,15 @@ footer {
   border-radius: 14px;
   box-shadow: 0 2px 14px rgba(0,0,0,0.09);
   padding: 34px 20px 24px 20px;
-  min-width: 200px;
+  min-width: 210px;
   max-width: 240px;
-  box-sizing: border-box;
   margin: 0;
+  transition: var(--transition);
+}
+
+.staff-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
 .staff-avatar {
@@ -168,16 +155,17 @@ footer {
 .staff-link {
   color: inherit;
   text-decoration: underline;
-  transition: color 0.2s;
+  transition: var(--transition);
 }
 
 .staff-link:hover,
 .staff-link:focus {
-  color: var(--brick, #b85638);
+  color: var(--brick);
   text-decoration: underline;
 }
 
-.staff-details .phd {
+.staff-details .phd,
+.staff-details .msc {
   font-size: 0.95em;
   font-weight: bold;
 }
@@ -190,10 +178,348 @@ footer {
   text-align: center;
 }
 
+/* ===== STAFF PROFILE PAGES ===== */
+.staff-profile {
+  background: #fff;
+  border-radius: var(--border-radius);
+  padding: 30px;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 30px;
+}
+
+.staff-profile h2 {
+  color: var(--brick);
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+}
+
+.profile-info {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.profile-image {
+  flex-shrink: 0;
+}
+
+.profile-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.profile-details {
+  flex: 1;
+}
+
+.profile-details h3 {
+  color: var(--brick);
+  border-bottom: 2px solid var(--brick);
+  padding-bottom: 5px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.profile-details h3:first-child {
+  margin-top: 0;
+}
+
+.profile-details p {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.profile-details ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.profile-details li {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+/* ===== NEWS CAROUSEL ===== */
+.news-carousel {
+  max-width: 100%;
+  margin: 0 auto 24px auto;
+  position: relative;
+}
+
+.news-slide {
+  display: none;
+}
+
+.news-slide.active {
+  display: block;
+}
+
+.news-slide img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.news-carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--brick);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.news-carousel button:hover {
+  background: #a0452a;
+}
+
+.news-carousel button#prev-news {
+  left: -40px;
+}
+
+.news-carousel button#next-news {
+  right: -40px;
+}
+
+.news-dots {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.news-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 3px;
+  background: #bbb;
+  border-radius: 50%;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.news-dot.active {
+  background: var(--brick);
+}
+
+/* ===== COUNTDOWN TIMER ===== */
+.countdown {
+  font-size: 1.2em;
+  color: var(--brick);
+  font-weight: 600;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  background: #f4f7fb;
+  color: #333;
+  padding: 20px 0 10px 0;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 2rem;
+  font-size: 0.98rem;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.text-center { text-align: center; }
+.text-justify { text-align: justify; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+
+/* ===== HOME PAGE SPECIFIC ===== */
+.home-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.campus-image {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  display: block;
+  margin-bottom: 1.2rem;
+}
+
+.section-divider {
+  margin: 2.5rem 0;
+  border: none;
+  border-top: 2px solid var(--brick);
+}
+
+/* ===== NEWS PAGE SPECIFIC ===== */
+.news-item {
+  background: #fff;
+  border-radius: var(--border-radius);
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--box-shadow);
+  border-left: 4px solid var(--brick);
+}
+
+.news-item h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--brick);
+}
+
+.news-date {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 16px;
+}
+
+.news-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  margin: 16px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ===== VIDEOS PAGE SPECIFIC ===== */
+.video-item {
+  background: #fff;
+  border-radius: var(--border-radius);
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: var(--box-shadow);
+}
+
+.video-item h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--brick);
+}
+
+.video-description {
+  margin-bottom: 20px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 315px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ===== NETWORK PAGE SPECIFIC ===== */
+.network-item {
+  background: #fff;
+  border-radius: var(--border-radius);
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--box-shadow);
+  border-left: 4px solid var(--brick);
+}
+
+.network-item h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--brick);
+}
+
+.network-item .institution {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.network-item .description {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1000px) {
+  main { 
+    max-width: 98vw; 
+  }
+  
+  .header-bar { 
+    flex-direction: column; 
+    gap: 10px; 
+  }
+  
+  .header-logo img { 
+    height: 60px; 
+  }
+  
+  .header-nav { 
+    margin-top: 7px; 
+    gap: 7px; 
+    padding: 0 6px; 
+  }
+  
+  .header-nav a { 
+    font-size: 1rem; 
+    padding: 8px 13px; 
+  }
+}
+
 @media (max-width: 800px) {
+  .header-bar {
+    padding: 16px 6vw 10px 6vw;
+  }
+  
+  .header-nav {
+    border-radius: 1.5em;
+  }
+  
   .staff-list {
     flex-direction: column;
     align-items: center;
     gap: 26px 0;
+  }
+  
+  .staff-card {
+    min-width: 0;
+    width: 94vw;
+    max-width: 340px;
+  }
+  
+  .profile-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-image {
+    margin-bottom: 20px;
+  }
+  
+  .news-carousel button#prev-news {
+    left: 10px;
+  }
+  
+  .news-carousel button#next-news {
+    right: 10px;
   }
 }
