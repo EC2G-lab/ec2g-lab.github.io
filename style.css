@@ -256,15 +256,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .news-slide.active {
-  display: block;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .news-slide img {
-  display: block;
-  width: 100%;
-  max-width: 100%;
+  flex-shrink: 0;
+  width: 300px;
+  max-width: 40%;
   border-radius: 10px;
-  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.news-slide p {
+  flex: 1;
+  min-width: 300px;
+  margin: 0;
 }
 
 .news-carousel button {
@@ -521,5 +530,20 @@ footer {
   
   .news-carousel button#next-news {
     right: 10px;
+  }
+  
+  /* Mobile layout for news carousel */
+  .news-slide.active {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .news-slide img {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .news-slide p {
+    min-width: 0;
   }
 }
