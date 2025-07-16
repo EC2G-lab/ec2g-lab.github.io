@@ -34,26 +34,20 @@ const EC2GData = {
     {
       id: "mcs13",
       title: "13th Mediterranean Combustion Symposium",
-      date: "2024-06-09",
+      date: "2025-06-09",
       image: "img/MCS.png",
       content: "The EC2G group participated in the 13th Mediterranean Combustion Symposium, held in Corfu, Greece, from June 9–14, 2024. Our team presented recent research and engaged with the international combustion community. Congratulations to all members who contributed to this successful participation!"
     },
     {
-      id: "new-project",
-      title: "New Project Awarded",
-      date: "2024-08-01",
-      content: "EC2G has been granted funding for a new research project on Biomass Energy Conversion starting August 2024. Stay tuned for updates on our progress and findings!"
-    },
-    {
       id: "seminar",
-      title: "Upcoming Seminar",
-      date: "2024-09-12",
-      content: "Join us for a seminar on Fire Safety in Industrial Environments on September 12, 2024, at the Valparaíso campus. All are welcome!"
+      title: "Diffusion Seminar for Industrial Engineering Students",
+      date: "2025-07-11",
+      content: "On July 11, 2025, a diffusion seminar was held for Industrial Engineering students at the Valparaíso campus. The following topics were presented:<ul><li>Thermal balances and fuel characterization</li><li>Flame analysis using optical techniques</li><li>Fire simulation in controlled environments</li></ul>"
     },
     {
       id: "paper-published",
-      title: "New Research Paper Published",
-      date: "2024-12-15",
+      title: "New Review Article Published in Progress in Energy and Combustion Science (PECS)!",
+      date: "2025-06-11",
       image: "img/pecs.png",
       content: "Dr. Felipe Escudero, Dr. José Morán and Dr. Andrés Fuentes have collaborated in the publication of a paper in the prestigious journal Progress in Energy and Combustion Science. The paper is titled 'Progress in multi-scale modeling of soot particle aggregation in laminar sooting flames' and can be found <a href=\"https://doi.org/10.1016/j.pecs.2025.101234\" target=\"_blank\">here</a>"
     }
@@ -163,7 +157,7 @@ const EC2GData = {
         degree: "PhD",
         title: "Assistant Professor",
         avatar: "images/juan_jose_cruz.png",
-        institution: "Collaborating Institution"
+        institution: "Pontificia Universidad Católica de Perú"
       },
       {
         id: "pedro-reszka",
@@ -171,7 +165,7 @@ const EC2GData = {
         degree: "PhD",
         title: "Associate Professor",
         avatar: "images/pedro_reszka.png",
-        institution: "Collaborating Institution"
+        institution: "Universidad Adolfo Ibáñez"
       },
       {
         id: "maria-thomsen",
@@ -179,7 +173,7 @@ const EC2GData = {
         degree: "PhD",
         title: "Assistant Professor",
         avatar: "images/maria_thomsen.png",
-        institution: "Collaborating Institution"
+        institution: "Universidad Adolfo Ibáñez"
       },
       {
         id: "jose-moran",
@@ -187,8 +181,178 @@ const EC2GData = {
         degree: "PhD",
         title: "Assistant Professor",
         avatar: "images/jose_moran.png",
+        institution: "University of Ottawa"
+      },
+      {
+        id: "francisco-cepeda",
+        name: "Francisco Cepeda",
+        degree: "PhD",
+        title: "Assistant Professor",
+        avatar: "images/francisco_cepeda.png",
         institution: "Collaborating Institution"
       }
+    ],
+    formerStudents: [
+      {
+        id: "jose-rivera",
+        name: "José Rivera",
+        degree: "MSc",
+        title: "PhD Student",
+        avatar: "images/jose_rivera.png",
+        institution: "Berkeley University"
+      },
+      {
+        id: "mijail-littin",
+        name: "Mijail Littin",
+        degree: "MSc",
+        title: "PhD Student",
+        avatar: "staff/avatars/Mijail-Littin_Avatar.png",
+        institution: "INSA Rouen Normandie"
+      },
+      {
+        id: "javier-gallardo",
+        name: "Javier Gallardo",
+        degree: "MSc",
+        title: "PhD Student (starting in October 2025)",
+        avatar: "staff/avatars/Javier-Gallardo_Avatar.png",
+        institution: "INSA Rouen Normandie"
+      },
+      {
+        id: "nicolas-mancilla",
+        name: "Nicolás Mancilla",
+        degree: "MSc",
+        title: "PhD Student",
+        avatar: "staff/avatars/Nicolas-Mancilla_Avatar.png",
+        institution: "Universidad Católica de Chile"
+      },
+      {
+        id: "vicente-castro",
+        name: "Vicente Castro",
+        degree: "MSc",
+        title: "PhD Student",
+        avatar: "staff/avatars/Vicente-Castro_Avatar.png",
+        institution: "Università degli Studi di Napoli Federico II"
+      },
+      {
+        id: "vincenzo-rosati",
+        name: "Vincenzo Rosati",
+        degree: "MSc",
+        title: "PhD Student",
+        avatar: "staff/avatars/Vincenzo-Rosati_Avatar.png",
+        institution: "Università degli Studi di Napoli Federico II"
+      },
+      {
+        id: "pablo-pinto",
+        name: "Pablo Pinto",
+        degree: "MSc",
+        title: "PhD Student",
+        avatar: "staff/avatars/Pablo-Pinto_Avatar.png",
+        institution: "Worcester Polytechnic Institute"
+      },
+      {
+        id: "francisco-patino",
+        name: "Francisco Patiño",
+        degree: "MSc",
+        title: "PhD Student",
+        avatar: "staff/avatars/Francisco-Patino_Avatar.png",
+        institution: "Université de Rouen"
+      },
+      {
+        id: "valentina-yap",
+        name: "Valentina Yap",
+        degree: "MSc",
+        title: "PhD Student",
+        avatar: "staff/avatars/Valentina-Yap_Avatar.png",
+        institution: "Collaborating Institution"
+      },
+      {
+        id: "alejandro-jerez",
+        name: "Alejandro Jerez",
+        degree: "MSc",
+        title: "Sub-manager of Planning and Management Control",
+        avatar: "staff/avatars/Alejandro-Jerez_Avatar.png",
+        institution: "Laboratorio Saval"
+      },
+      {
+        id: "gonzalo-valdivia",
+        name: "Gonzalo Valdivia",
+        degree: "Eng",
+        title: "Project Manager",
+        avatar: "staff/avatars/Gonzalo-Valdivia_Avatar.png",
+        institution: "Hapag-Lloyd AG"
+      },
+      {
+        id: "emilio-alvarez",
+        name: "Emilio Alvarez",
+        degree: "MSc",
+        title: "Project Manager",
+        avatar: "staff/avatars/Emilio-Alvarez_Avatar.png",
+        institution: "Collaborating Institution"
+      },
+      {
+        id: "roberto-parot",
+        name: "Roberto Parot",
+        degree: "MSc",
+        title: "Project Manager",
+        avatar: "staff/avatars/Roberto-Parot_Avatar.png",
+        institution: "Collaborating Institution"
+      },
+      {
+        id: "felipe-gonzalez",
+        name: "Felipe González",
+        degree: "MSc",
+        title: "PhD Student",
+        avatar: "staff/avatars/Felipe-Gonzalez_Avatar.png",
+        institution: "-"
+      },
+      {
+        id: "rodrigo-henriquez",
+        name: "Rodrigo Henriquez",
+        degree: "MSc",
+        title: "PhD Student",
+        avatar: "staff/avatars/Rodrigo-Henriquez_Avatar.png",
+        institution: "Universidad de Concepción"
+      },
+      {
+        id: "krystian-munoz",
+        name: "Krystian Muñoz",
+        degree: "MSc",
+        title: "PhD Student",
+        avatar: "staff/avatars/Krystian-Munoz_Avatar.png",
+        institution: "Universidad de Concepción"
+      },
+      {
+        id: "dominik-albicker",
+        name: "Dominik Albicke",
+        degree: "MSc",
+        title: "PhD Student",
+        avatar: "staff/avatars/Dominik-Albicke_Avatar.png",
+        institution: "Universidad de Chile"
+      },
+      {
+        id: "pablo-riquelme",
+        name: "Pablo Riquelme",
+        degree: "MSc",
+        title: "PhD Student",
+        avatar: "staff/avatars/Pablo-Riquelme_Avatar.png",
+        institution: "Universidad de Concepción"
+      },
+      {
+        id: "miguel-becerra",
+        name: "Miguel Becerra",
+        degree: "MSc",
+        title: "PhD Student",
+        avatar: "staff/avatars/Miguel-Becerra_Avatar.png",
+        institution: "Universidad de Concepción"
+      },
+      {
+        id: "juan-pablo-garcia",
+        name: "Juan Pablo García",
+        degree: "MSc",
+        title: "PhD Student",
+        avatar: "staff/avatars/Juan-Pablo-Garcia_Avatar.png",
+        institution: "Universidad de Chile"
+      },
     ]
   },
 

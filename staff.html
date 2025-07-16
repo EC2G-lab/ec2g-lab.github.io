@@ -71,6 +71,11 @@
       EC2GData.staff.collaborators.forEach(member => {
         collaboratorsContainer.appendChild(createStaffCard(member));
       });
+
+      const formerStudentsContainer = document.getElementById('former-students');
+      EC2GData.staff.formerStudents.forEach(member => {
+        formerStudentsContainer.appendChild(createStaffCard(member));
+      });
     });
     
     function createStaffCard(member) {
@@ -80,6 +85,9 @@
       const degreeClass = member.degree === 'PhD' ? 'phd' : 'msc';
       const degreeSpan = member.degree ? `<span class="${degreeClass}">${member.degree}</span>` : '';
       
+      // Determine institution: use member's institution if available, otherwise use main institution
+      const institution = member.institution || EC2GData.site.institution;
+      
       card.innerHTML = `
         <img src="${member.avatar}" alt="${member.name}" class="staff-avatar">
         <div class="staff-details">
@@ -87,6 +95,7 @@
             <a href="staff/${member.id}.html" class="staff-link">${member.name}${degreeSpan ? ', ' + degreeSpan : ''}</a>
           </h3>
           <div class="staff-title">${member.title}</div>
+          <div class="staff-institution">${institution}</div>
         </div>
       `;
       

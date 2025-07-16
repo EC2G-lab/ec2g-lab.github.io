@@ -60,18 +60,36 @@
         day: 'numeric'
       });
       
-      let content = `
+      // Create header section (title and date spanning full width)
+      const headerDiv = document.createElement('div');
+      headerDiv.className = 'news-header';
+      headerDiv.innerHTML = `
         <h3>${newsItem.title}</h3>
         <p class="news-date"><strong>${date}</strong></p>
       `;
       
-      if (newsItem.image) {
-        content += `<img src="${newsItem.image}" alt="${newsItem.title}" class="news-image">`;
-      }
+      // Create content section with two columns
+      const contentDiv = document.createElement('div');
+      contentDiv.className = 'news-content';
       
-      content += `<p class="text-justify">${newsItem.content}</p>`;
+      // Create left column (image)
+      const leftColumn = document.createElement('div');
+      leftColumn.className = 'news-left-column';
+      leftColumn.innerHTML = newsItem.image ? `<img src="${newsItem.image}" alt="${newsItem.title}" class="news-image">` : '';
       
-      article.innerHTML = content;
+      // Create right column (text)
+      const rightColumn = document.createElement('div');
+      rightColumn.className = 'news-right-column';
+      rightColumn.innerHTML = `<p class="text-justify">${newsItem.content}</p>`;
+      
+      // Append columns to content div
+      contentDiv.appendChild(leftColumn);
+      contentDiv.appendChild(rightColumn);
+      
+      // Append header and content to article
+      article.appendChild(headerDiv);
+      article.appendChild(contentDiv);
+      
       return article;
     }
   </script>
