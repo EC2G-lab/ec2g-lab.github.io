@@ -73,7 +73,7 @@ const EC2GData = {
         name: "Andrés Fuentes",
         degree: "PhD",
         title: "Professor",
-        avatar: "staff/avatars/Andres_Fuentes-150x150.png",
+        avatar: "staff/avatars/Andres_Fuentes.png",
         email: "andres.fuentes@usm.cl",
         orcid: "0000-0002-5037-0961",
         researchInterests: [
@@ -88,7 +88,7 @@ const EC2GData = {
         name: "Rodrigo Demarco",
         degree: "PhD",
         title: "Associate Professor",
-        avatar: "images/rodrigo_demarco.png",
+        avatar: "staff/avatars/Rodrigo_Demarco.png",
         email: "rodrigo.demarco@usm.cl"
       },
       {
@@ -96,7 +96,7 @@ const EC2GData = {
         name: "Felipe Escudero",
         degree: "PhD",
         title: "Assistant Professor",
-        avatar: "images/felipe_escudero.png",
+        avatar: "staff/avatars/Felipe_Escudero.png",
         email: "felipe.escudero@usm.cl"
       },
       {
@@ -104,7 +104,7 @@ const EC2GData = {
         name: "Gonzalo Severino",
         degree: "PhD",
         title: "Assistant Professor",
-        avatar: "images/gonzalo_severino.png",
+        avatar: "staff/avatars/Gonzalo_Severino.png",
         email: "gonzalo.severino@usm.cl"
       },
       {
@@ -112,7 +112,7 @@ const EC2GData = {
         name: "Gonzalo Olivares",
         degree: "MSc",
         title: "Research Engineer",
-        avatar: "images/gonzalo_olivares.png",
+        avatar: "staff/avatars/Gonzalo_Olivares.png",
         email: "gonzalo.olivares@usm.cl"
       }
     ],
@@ -122,7 +122,7 @@ const EC2GData = {
         name: "Ignacio Verdugo",
         degree: "MSc",
         title: "PhD Student",
-        avatar: "images/ignacio_verdugo.png",
+        avatar: "staff/avatars/Ignacio_Verdugo.png",
         email: "ignacio.verdugo@usm.cl"
       },
       {
@@ -130,7 +130,7 @@ const EC2GData = {
         name: "Nicolás Gutiérrez",
         degree: "MSc",
         title: "PhD Student",
-        avatar: "images/nicolas_gutierrez.png",
+        avatar: "staff/avatars/Nicolas_Guiterrez.png",
         email: "nicolas.gutierrez@usm.cl"
       },
       {
@@ -138,7 +138,7 @@ const EC2GData = {
         name: "Felipe Alarcón",
         degree: "",
         title: "MSc Student",
-        avatar: "images/felipe_alarcon.png",
+        avatar: "staff/avatars/Felipe_Alarcon.png",
         email: "felipe.alarcon@usm.cl"
       },
       {
@@ -146,7 +146,7 @@ const EC2GData = {
         name: "Constanza López",
         degree: "",
         title: "MSc Student",
-        avatar: "images/constanza_lopez.png",
+        avatar: "staff/avatars/Constanza_Lopez.png",
         email: "constanza.lopez@usm.cl"
       }
     ],
@@ -156,7 +156,7 @@ const EC2GData = {
         name: "Juan José Cruz",
         degree: "PhD",
         title: "Assistant Professor",
-        avatar: "images/juan_jose_cruz.png",
+        avatar: "staff/avatars/Juan_Jose_Cruz.png",
         institution: "Pontificia Universidad Católica de Perú"
       },
       {
@@ -164,7 +164,7 @@ const EC2GData = {
         name: "Pedro Reszka",
         degree: "PhD",
         title: "Associate Professor",
-        avatar: "images/pedro_reszka.png",
+        avatar: "staff/avatars/Pedro_Reszka.png",
         institution: "Universidad Adolfo Ibáñez"
       },
       {
@@ -172,7 +172,7 @@ const EC2GData = {
         name: "María Thomsen",
         degree: "PhD",
         title: "Assistant Professor",
-        avatar: "images/maria_thomsen.png",
+        avatar: "staff/avatars/Maria_Del_Carmen_Thompson.png",
         institution: "Universidad Adolfo Ibáñez"
       },
       {
@@ -180,7 +180,7 @@ const EC2GData = {
         name: "José Morán",
         degree: "PhD",
         title: "Assistant Professor",
-        avatar: "images/jose_moran.png",
+        avatar: "staff/avatars/Jose_Moran.png",
         institution: "University of Ottawa"
       },
       {
@@ -188,7 +188,7 @@ const EC2GData = {
         name: "Francisco Cepeda",
         degree: "PhD",
         title: "Assistant Professor",
-        avatar: "images/francisco_cepeda.png",
+        avatar: "staff/avatars/Francisco_Cepeda.png",
         institution: "Collaborating Institution"
       }
     ],
@@ -198,7 +198,7 @@ const EC2GData = {
         name: "José Rivera",
         degree: "MSc",
         title: "PhD Student",
-        avatar: "images/jose_rivera.png",
+        avatar: "staff/avatars/Jose_Ignacio_Rivera.png",
         institution: "Berkeley University"
       },
       {
@@ -240,6 +240,14 @@ const EC2GData = {
         title: "PhD Student",
         avatar: "staff/avatars/Vincenzo-Rosati_Avatar.png",
         institution: "Università degli Studi di Napoli Federico II"
+      },
+      {
+        id: "fernando-ebensperger",
+        name: "Fernando Ebensperger",
+        degree: "MSc",
+        title: "PhD Student",
+        avatar: "staff/avatars/Fernando_E.png",
+        institution: "Worcester Polytechnic Institute"
       },
       {
         id: "pablo-pinto",
